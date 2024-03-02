@@ -1,2 +1,2 @@
-# Chillenium 2024
-- Our game
+# 🫰 Bad Business
+- Chillenium 2024 Entry
