@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item_Controller : MonoBehaviour, Interactable
+public class Item_Controller : MonoBehaviour
 {
-   public void Interact(){
-        Debug.Log("NICE!");
+   public int type;
+   public void OnTriggerEnter2D(Collider2D other) {
+      Destroy(gameObject);
+      InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
+      inventoryManager.AddItem(type);
    }
-
-} 
+}
