@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ZombieAI : MonoBehaviour
+public class AIChase : MonoBehaviour
 {
 
     public GameObject player;
@@ -10,7 +11,9 @@ public class ZombieAI : MonoBehaviour
 
     private float distance;
     public float distanceBetween;
+    public float hitRange;
 
+    private float timeElapsed = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +31,19 @@ public class ZombieAI : MonoBehaviour
 
         
 
-
+        //if the ai is in agro range
         if(distance < distanceBetween)
         {
+            timeElapsed += Time.deltaTime;
+            //if ai is in hit range
+            if(distance < hitRange && timeElapsed > 1000)
+            {
+                Debug.Log("You've been hit!");
+                return;
+            }
+
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+            //transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
 
 
