@@ -23,7 +23,8 @@ public class Randomly_Place_Items : MonoBehaviour
         TileBase[] itemtileArray = itemtiles.GetTilesBlock(bgtiles.cellBounds);
         TileBase[] bgtileArray = bgtiles.GetTilesBlock(bgtiles.cellBounds);
 
-        int j = 0;
+        var mudtileAsset = Resources.Load<Tile>("mud");
+
         for (int i = 0; i < bgtileArray.Length; i++)
         {
             if (bgtileArray[i] && bgtileArray[i].name == "Sand")
@@ -32,11 +33,12 @@ public class Randomly_Place_Items : MonoBehaviour
 
                 if (chance == 0)
                 {
-                    Debug.Log("Placing object...");
+                    mudtileArray[i] = mudtileAsset;
                 }
             }
         }
-        Debug.Log(j);
+
+        mudtiles.SetTilesBlock(bgtiles.cellBounds, mudtileArray);
     }
 
     // Update is called once per frame
