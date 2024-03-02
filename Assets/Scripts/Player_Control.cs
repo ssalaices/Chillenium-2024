@@ -54,7 +54,7 @@ public class Player_Control : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, transform.localScale.y * dashingPower);
+        rb.velocity = new Vector2(speedX * dashingPower, speedY * dashingPower);
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
