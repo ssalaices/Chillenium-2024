@@ -5,18 +5,20 @@ using UnityEngine;
 public class Player_Control : MonoBehaviour
 {
     
-    public float movSpeed;
+    public float walkSpeed;
+    public float runSpeed;
+    private float movSpeed = 5;
     float speedX, speedY;
     Rigidbody2D rb;
 
-    //for interactor :)
-    private Animator animator;
-    private Vector2 input;
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 2f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = .1f;
 
-    //might be useful for interactor idk
-    private void Awake(){
-        animator = GetComponent<Animator>();
-    }
+    [SerializeField] private TrailRenderer tr;
+
     
     // Start is called before the first frame update
     void Start()
@@ -27,24 +29,39 @@ public class Player_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //also for the interactor i think
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
+
+        if (isDashing)
+        {
+            return;
+        }
 
         speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
         speedY = Input.GetAxisRaw("Vertical") * movSpeed;
+
+        if (speedX != 0) speedY = 0;
+
         rb.velocity = new Vector2(speedX, speedY);
+        
 
-        if (Input.GetKeyDown(KeyCode.F)){
-            Interact();
+        //this is for dashing
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash){
+            StartCoroutine(Dash());
         }
+        
     }
 
-    void Interact() {
-        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
-        var interactPos = transform.position + facingDir;
-
-        Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, transform.localScale.y * dashingPower);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
+   
 
 }
