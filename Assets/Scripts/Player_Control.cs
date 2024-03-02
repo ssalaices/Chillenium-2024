@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class Player_Control : MonoBehaviour
@@ -10,6 +11,7 @@ public class Player_Control : MonoBehaviour
     private float movSpeed = 5;
     float speedX, speedY;
     Rigidbody2D rb;
+    Animator animator;
 
     private bool canDash = true;
     private bool isDashing;
@@ -18,12 +20,12 @@ public class Player_Control : MonoBehaviour
     private float dashingCooldown = .1f;
 
     [SerializeField] private TrailRenderer tr;
-
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,14 +42,27 @@ public class Player_Control : MonoBehaviour
 
         if (speedX != 0) speedY = 0;
 
-        rb.velocity = new Vector2(speedX, speedY);
-        
 
+        Vector2 velocityVector = new Vector2(speedX, speedY);
+        rb.velocity = velocityVector;
+        
         //this is for dashing
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash){
             StartCoroutine(Dash());
         }
-        
+
+        //pass animation values ONLY WHEN MOVING
+        //so I can also have idle animations in a direction
+        if (velocityVector.magnitude != 0)
+        {
+            animator.SetFloat("Speed", 1);
+            animator.SetFloat("XInput", speedX);
+            animator.SetFloat("YInput", speedY);
+        } 
+        else
+        {
+            animator.SetFloat("Speed", 0);
+        }
     }
 
     private IEnumerator Dash()
@@ -62,6 +77,4 @@ public class Player_Control : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
-   
-
 }
