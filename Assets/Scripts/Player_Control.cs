@@ -34,7 +34,11 @@ public class Player_Control : MonoBehaviour
 
         if (isDashing)
         {
+            animator.SetBool("Dashing", true);
             return;
+        } 
+        else {
+            animator.SetBool("Dashing", false);
         }
 
         speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
