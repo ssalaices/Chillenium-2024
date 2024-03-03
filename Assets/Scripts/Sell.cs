@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Sell : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class Sell : MonoBehaviour
                 debt.text = "Debt remaining: $" + inventoryManager.debt.ToString();
             } else {
                 debt.text = "Debt successfully paid off.";
+            SceneManager.LoadScene("WinScreen");
             }
         switch (id) {
             case 0:
