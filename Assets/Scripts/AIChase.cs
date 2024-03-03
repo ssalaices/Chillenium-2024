@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class AIChase : MonoBehaviour
 {
 
-    public GameObject player;
+    
     public float speed;
 
     private float distance;
@@ -18,14 +18,15 @@ public class AIChase : MonoBehaviour
     public float hitCooldown;
 
     //Player_Combat health = player.GetComponent<Player_Combat>();
-    public Player_Combat player_combat;
-    public Player_Control player_control;
+    //public Player_Control player_control;
 
+    private GameObject player;
 
     Animator animator;
 
     private void Start()
     {
+        player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
     }
 
@@ -91,9 +92,8 @@ public class AIChase : MonoBehaviour
             //if ai is in hit range and cooldown has passed
             if(distance < hitRange && timeElapsed > hitCooldown)
             {
-                player_combat.TakeDamage(20);
-                player_control.PlayFeedback(gameObject);
-                
+                //player_combat.TakeDamage(20);
+                //player_control.PlayFeedback(gameObject);
                 timeElapsed = 0;
                 animator.SetTrigger("Dashing");
                 return;
@@ -103,4 +103,14 @@ public class AIChase : MonoBehaviour
             //transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == player.name) 
+        { 
+            collision.gameObject?.GetComponent<IDamagable>().TakeDamage(20);
+        }
+    }
 }
+
+
