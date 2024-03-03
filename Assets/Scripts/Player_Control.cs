@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class Player_Control : MonoBehaviour
 {
@@ -20,12 +22,15 @@ public class Player_Control : MonoBehaviour
     private float dashingCooldown = .1f;
 
     [SerializeField] private TrailRenderer tr;
+    [SerializeField] private GameObject MudLayer;
+    private Tilemap mudtiles;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        mudtiles = MudLayer.GetComponent<Tilemap>();
     }
 
     // Update is called once per frame
@@ -34,6 +39,11 @@ public class Player_Control : MonoBehaviour
 
         if (isDashing)
         {
+            
+            //find mud tiles near player
+            //if distance between player and tile is <= some value
+            //kill the mud tile, make 
+
             animator.SetBool("Dashing", true);
             return;
         } 

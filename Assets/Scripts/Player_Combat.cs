@@ -49,7 +49,7 @@ public class Player_Combat : MonoBehaviour
         //play attack
         //detect enemies in range
         //damage them
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("Dashing");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies)
@@ -59,6 +59,8 @@ public class Player_Combat : MonoBehaviour
 
     }
 
+
+    //supposed to draw the hitbox for enemies
     void OnDrawGizmosSelected()
     {
         if(attackPoint == null)
