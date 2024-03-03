@@ -60,13 +60,12 @@ public class Randomly_Place_Items : MonoBehaviour
                         randItem.GetComponent<Item_Controller>().type = itemType;
                         randItem.GetComponent<Item_Controller>().mudtiles = mudtiles;
                         randItem.GetComponent<Transform>().position = new Vector3((float)x + 0.5f, (float)y + 0.5f, 0.0f);
+                        mudtileArray[i] = mudtileAsset;
                     }
                     else
                     {
                         Instantiate(zombiePrefab, tileCoordinates, dumbRotation);
                     }
-
-                    mudtileArray[i] = mudtileAsset;
                 }
             }
 
