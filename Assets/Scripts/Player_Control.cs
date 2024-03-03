@@ -60,9 +60,9 @@ public class Player_Control : MonoBehaviour
             area.SetMinMax(startPos, endPos);
             TileBase[] tiles = mudtiles.GetTilesBlock(area);
 
-            for (int i = 0; i < 9; i++)
+            foreach (Vector3Int position in positions)
             {
-                mudtiles.SetTile(positions[i], null);
+                mudtiles.SetTile(position, null);
             }
 
             animator.SetBool("Dashing", true);
