@@ -16,6 +16,8 @@ public class Player_Combat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    public float currHealth = 100;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,11 @@ public class Player_Combat : MonoBehaviour
             }
         }
 
+
+        //if dead run the die function
+        if(currHealth <= 0) {
+            Die();
+        }
         
     }
 
@@ -66,4 +73,17 @@ public class Player_Combat : MonoBehaviour
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+    void Die()
+    {
+        Debug.Log("You died");
+
+        animator.SetBool("IsDead", true);
+
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
+
+        //add some game over screen stuff
+    }
+
 }

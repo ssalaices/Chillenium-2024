@@ -31,7 +31,6 @@ public class AICombat : MonoBehaviour
         if(currentHealth <= 0)
         {
             Die();
-
         }
         
     }
