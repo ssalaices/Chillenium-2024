@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class BalanceScript : MonoBehaviour
 {
-    public int balance;
+    public int debt;
     public Text text;
     // Start is called before the first frame update
     void Start()
     {
-        text.text = "Balance: $0";
+        text.text = "Debt: $0";
         Update();
     }
 
@@ -18,7 +18,7 @@ public class BalanceScript : MonoBehaviour
     void Update()
     {
         InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
-        balance = inventoryManager.balance;
-        text.text = "Balance: $" + balance.ToString();
+        debt = inventoryManager.debt;
+        text.text = "Debt: $" + debt.ToString();
     }
 }

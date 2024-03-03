@@ -4,6 +4,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 public class Player_Control : MonoBehaviour
 {
@@ -21,9 +22,14 @@ public class Player_Control : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = .1f;
 
+    //for mudtiles
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private GameObject MudLayer;
     private Tilemap mudtiles;
+
+    //for knockback
+    private float strength = 16, delay = 0.15f;
+    public UnityEventQueueSystem OnBegin, OnDone;
     
     // Start is called before the first frame update
     void Start()
@@ -43,7 +49,7 @@ public class Player_Control : MonoBehaviour
             Vector3Int pos = Vector3Int.FloorToInt(gameObject.transform.position);
             Vector3Int startPos = new Vector3Int(pos.x - 1, pos.y - 1, 0);
             Vector3Int endPos = new Vector3Int(pos.x + 1, pos.y + 1, 0);
-            Vector3Int[] positions = new Vector3Int[25];
+            Vector3Int[] positions = new Vector3Int[diffs.Length * diffs.Length];
 
             int j = 0;
             foreach (int diffx in diffs)
@@ -60,9 +66,9 @@ public class Player_Control : MonoBehaviour
             area.SetMinMax(startPos, endPos);
             TileBase[] tiles = mudtiles.GetTilesBlock(area);
 
-            for (int i = 0; i < 9; i++)
+            foreach (Vector3Int position in positions)
             {
-                mudtiles.SetTile(positions[i], null);
+                mudtiles.SetTile(position, null);
             }
 
             animator.SetBool("Dashing", true);
@@ -100,6 +106,7 @@ public class Player_Control : MonoBehaviour
         }
     }
 
+    //for dashing
     private IEnumerator Dash()
     {
         canDash = false;
@@ -111,5 +118,23 @@ public class Player_Control : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
+    }
+
+    //for knockback
+    public void PlayFeedback(GameObject sender)
+    {
+        StopAllCoroutines();
+        //OnBegin?.Invoke();
+        Vector2 direction = (transform.position - sender.transform.forward).normalized;
+        rb.AddForce(direction* strength, ForceMode2D.Impulse);
+        StartCoroutine(Reset());
+    }
+
+
+    private IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(delay);
+        rb.velocity = Vector3.zero;
+        //OnDone?.Invoke();
     }
 }
