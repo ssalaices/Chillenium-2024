@@ -34,6 +34,8 @@ public class Player_Control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         mudtiles = MudLayer.GetComponent<Tilemap>();

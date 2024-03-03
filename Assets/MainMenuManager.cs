@@ -6,10 +6,18 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     GameObject shop;
+    private GameObject player;
 
     private void Start()
     {
         shop = GameObject.Find("Shop");
+    }
+
+    public void LeaveShop()
+    {
+        SceneManager.LoadScene("Dungeon");
+        player = GameObject.Find("Player");
+        Destroy(player);
     }
 
     public void PlayGame()

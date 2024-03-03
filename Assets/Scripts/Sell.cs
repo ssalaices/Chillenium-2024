@@ -10,12 +10,18 @@ public class Sell : MonoBehaviour
     public Text debt;
     public Text soldFor;
     public Text quote;
+
+    private GameObject player;
+
     void Start() {
+        player = GameObject.Find("Player");
+        player.transform.position = new Vector2(100, 100);
+
         InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
         Button button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
         soldFor.text = "How much your object sells for will show here.";
-        debt.text = "Debt remaining: $1500";
+        debt.text = "Debt remaining: $" + inventoryManager.debt.ToString();
         quote.text = "Welcome back!";
     }
     // Update is called once per frame
