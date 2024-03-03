@@ -55,7 +55,7 @@ public class Player_Combat : MonoBehaviour, IDamagable
         //play attack
         //detect enemies in range
         //damage them
-        animator.SetTrigger("Dashing");
+        animator.SetBool("Dashing", true);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies)
@@ -92,7 +92,7 @@ public class Player_Combat : MonoBehaviour, IDamagable
 
         //add some game over screen stuff
 
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(2);
     }
 
 }

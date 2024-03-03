@@ -13,12 +13,20 @@ public class AICombat : MonoBehaviour
     public Animator animator;
 
     //health bar stuff
-    public Image healthBar;
+    private GameObject healthBarObject;
+    private Image healthBar;
     public float currentHealth = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
+        healthBarObject = GameObject.FindGameObjectWithTag("Green");
+        if (healthBarObject != null)
+        {
+            //Debug.Log("YIPEEEEEEEEEEE");
+            healthBar = healthBarObject.GetComponent<Image>();
+        }
+
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
     }
@@ -26,7 +34,7 @@ public class AICombat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.fillAmount = currentHealth / 100f;
+        healthBar.fillAmount = currentHealth;
 
         //play hurt animation
         animator.SetTrigger("Hurt");
@@ -39,12 +47,7 @@ public class AICombat : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //for health bar
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            TakeDamage(20);
-        }
+    {        
 
     }
 
