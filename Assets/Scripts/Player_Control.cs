@@ -39,18 +39,30 @@ public class Player_Control : MonoBehaviour
 
         if (isDashing)
         {
-            int[] diffs = {-1, 0, 1};
+            int[] diffs = {-2, -1, 0, 1, 2};
             Vector3Int pos = Vector3Int.FloorToInt(gameObject.transform.position);
             Vector3Int startPos = new Vector3Int(pos.x - 1, pos.y - 1, 0);
             Vector3Int endPos = new Vector3Int(pos.x + 1, pos.y + 1, 0);
-            Vector3Int[] positions = new Vector3Int[9];
-            TileBase[] tiles = new TileBase[9];
+            Vector3Int[] positions = new Vector3Int[25];
 
-            mudtiles.GetTilesRangeNonAlloc(startPos, endPos, positions, tiles);
-
-            foreach (TileBase tile in tiles)
+            int j = 0;
+            foreach (int diffx in diffs)
             {
-                Destroy(tile);
+                foreach (int diffy in diffs)
+                {
+                    positions[j].x = pos.x + diffx;
+                    positions[j].y = pos.y + diffy;
+                    j++;
+                }
+            }
+
+            BoundsInt area = new();
+            area.SetMinMax(startPos, endPos);
+            TileBase[] tiles = mudtiles.GetTilesBlock(area);
+
+            for (int i = 0; i < 9; i++)
+            {
+                mudtiles.SetTile(positions[i], null);
             }
 
             animator.SetBool("Dashing", true);
