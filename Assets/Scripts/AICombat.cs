@@ -7,18 +7,14 @@ public class AICombat : MonoBehaviour
 
     public int maxHealth = 100;
     int currentHealth;
-    public Animator animator;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage)
@@ -27,11 +23,10 @@ public class AICombat : MonoBehaviour
 
         //play hurt animation
         animator.SetTrigger("Hurt");
-
+          
         if(currentHealth <= 0)
         {
             Die();
-
         }
         
     }
