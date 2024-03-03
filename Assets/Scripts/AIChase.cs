@@ -14,7 +14,12 @@ public class AIChase : MonoBehaviour
     public float distanceBetween;
     public float hitRange;
 
-    private float timeElapsed = 0f;
+    private float timeElapsed = 3;
+    public float hitCooldown;
+
+    //Player_Combat health = player.GetComponent<Player_Combat>();
+    public Player_Combat player_combat;
+
 
     Animator animator;
 
@@ -23,9 +28,12 @@ public class AIChase : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
     // Update is called once per frame
     void Update()
-    {
+    { 
+
+
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
 
@@ -73,14 +81,20 @@ public class AIChase : MonoBehaviour
             }
         }
 
+        //is the timer for if the hit cooldown has passed
+        timeElapsed += Time.deltaTime;
+
         //if the ai is in agro range
         if (distance < distanceBetween)
         {
-            timeElapsed += Time.deltaTime;
-            //if ai is in hit range
-            if (distance < hitRange && timeElapsed > 1000)
+
+            //if ai is in hit range and cooldown has passed
+            if(distance < hitRange && timeElapsed > hitCooldown)
             {
-                Debug.Log("You've been hit!");
+                player_combat.currHealth -= 20;
+
+                timeElapsed = 0;
+
                 return;
             }
 
