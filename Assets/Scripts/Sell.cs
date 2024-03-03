@@ -6,9 +6,7 @@ public class Sell : MonoBehaviour
 {
     // Start is called before the first frame update
     public int id;
-    public Text debt;
-    public Text soldFor;
-    public Text quote;
+    public Text debt, soldFor, quote;
     void Start() {
         InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
         Button button = GetComponent<Button>();
@@ -29,7 +27,7 @@ public class Sell : MonoBehaviour
         int price = Random.Range(50, 101);
         soldFor.text = "This object was sold for $" + price.ToString();
         inventoryManager.debt -= price;
-            if (inventoryManager.debt >= 0) {
+            if (inventoryManager.debt > 0) {
                 debt.text = "Debt remaining: $" + inventoryManager.debt.ToString();
             } else {
                 debt.text = "Debt successfully paid off.";
