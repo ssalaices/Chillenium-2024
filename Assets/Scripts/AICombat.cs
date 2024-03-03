@@ -9,13 +9,8 @@ public class AICombat : MonoBehaviour
 {
 
     public int maxHealth = 100;
-<<<<<<< Updated upstream
-    int currentHealth;
-    Animator animator;
     SpriteRenderer spriteRenderer;
-=======
     public Animator animator;
->>>>>>> Stashed changes
 
     //health bar stuff
     public Image healthBar;
@@ -25,7 +20,6 @@ public class AICombat : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-<<<<<<< Updated upstream
         animator = GetComponent<Animator>();
     }
 
@@ -35,9 +29,11 @@ public class AICombat : MonoBehaviour
 
         //play hurt animation
         animator.SetTrigger("Hurt");
-          
-        if(currentHealth <= 0)
-=======
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     // Update is called once per frame
@@ -45,7 +41,6 @@ public class AICombat : MonoBehaviour
     {
         //for health bar
         if (Input.GetKeyDown(KeyCode.Return))
->>>>>>> Stashed changes
         {
             TakeDamage(20);
         }
