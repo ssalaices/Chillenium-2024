@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject shop;
+
+    private void Start()
+    {
+        shop = GameObject.Find("Shop");
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Dungeon");
@@ -21,10 +27,28 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("StartScreen");
     }
 
+    public void EnterShop()
+    {
+        SceneManager.LoadScene("Shop");
+    }
+
+    
+
     public void QuitGame()
     {
         Application.Quit();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
 
+        Debug.Log("Entered Trigger " + other.gameObject.name);
+
+
+        if (other.gameObject.name == "Player")
+        {
+            EnterShop();
+        }
+        
+    }
 }

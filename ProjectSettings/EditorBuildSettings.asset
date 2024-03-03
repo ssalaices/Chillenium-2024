@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Game/EndScreen.unity
     guid: 5361b314ddd93dc4ba60b05aae509142
+  - enabled: 1
+    path: Assets/Scenes/Main Game/Shop.unity
+    guid: 6a5d3cce667f2e94cae48bbe23e07ac7
   - enabled: 0
     path: Assets/Scenes/Underground.unity
     guid: bcb11702c630424469ba5c5b6b1ac0ba
