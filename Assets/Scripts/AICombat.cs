@@ -13,14 +13,14 @@ public class AICombat : MonoBehaviour
     public Animator animator;
 
     //health bar stuff
-    private GameObject healthBarObject;
+    public GameObject healthBarObject;
     private Image healthBar;
     public float currentHealth = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthBarObject = GameObject.FindGameObjectWithTag("Green");
+
         if (healthBarObject != null)
         {
             //Debug.Log("YIPEEEEEEEEEEE");
@@ -34,7 +34,7 @@ public class AICombat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.fillAmount = currentHealth;
+        healthBar.fillAmount = currentHealth / 100f;
 
         //play hurt animation
         animator.SetTrigger("Hurt");
