@@ -109,7 +109,7 @@ public class AIChase : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == player.name) 
+        if(collision.gameObject == player) 
         { 
             collision.gameObject?.GetComponent<IDamagable>().TakeDamage(20);
         }

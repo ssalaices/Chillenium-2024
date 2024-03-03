@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3118719492300024179}
   m_Layer: 0
   m_Name: Green
-  m_TagString: Untagged
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,7 +358,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -378,7 +378,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08972673, y: -1.756556}
+  m_Offset: {x: 0, y: -1.8305855}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -389,7 +389,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0138017, y: 0.9409566}
+  m_Size: {x: 1.1941653, y: 0.90595543}
   m_EdgeRadius: 0
 --- !u!50 &7195102883201822452
 Rigidbody2D:
@@ -414,7 +414,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -529,7 +529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 1909413230557053186}
-  currentHealth: 0
+  healthBarObject: {fileID: 2777255470067162720}
+  currentHealth: 100
 --- !u!1 &8640641473444767918
 GameObject:
   m_ObjectHideFlags: 0
