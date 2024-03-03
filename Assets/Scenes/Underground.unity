@@ -52808,6 +52808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MudLayer: {fileID: 642973518}
   BGLayer: {fileID: 814616205}
+  zombiePrefab: {fileID: 7796748824366154205, guid: 9b7fea832c675db449e97a2d8cdca4ae, type: 3}
 --- !u!1001 &1009815330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52922,6 +52923,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7fea832c675db449e97a2d8cdca4ae, type: 3}
+--- !u!1 &1110412571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110412573}
+  m_Layer: 0
+  m_Name: Zombie Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1110412573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110412571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1263267981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73736,3 +73768,4 @@ SceneRoots:
   - {fileID: 1062132055}
   - {fileID: 1263267981}
   - {fileID: 1009815330}
+  - {fileID: 1110412573}

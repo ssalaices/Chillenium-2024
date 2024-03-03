@@ -9,6 +9,9 @@ public class Randomly_Place_Items : MonoBehaviour
 
     [SerializeField] GameObject MudLayer;
     [SerializeField] GameObject BGLayer;
+
+    [SerializeField] GameObject zombiePrefab;
+
     System.Random rand = new System.Random();
 
     // Start is called before the first frame update
@@ -30,16 +33,19 @@ public class Randomly_Place_Items : MonoBehaviour
         int y = (int) bgtiles.origin.y;
         int min_x = x;
         int max_x = (int)bgtiles.cellBounds.max.x;
+        Quaternion dumbRotation = new Quaternion(0, 0, 0, 0);
 
         for (int i = 0; i < bgtileArray.Length; i++)
         {
+            Vector3 tileCoordinates = new Vector3(x, y, 0);
+
             if (bgtileArray[i] && bgtileArray[i].name == "Sand")
             {
                 int chance = rand.Next(0, 30);
 
                 if (chance == 0)
                 {
-                    int itemType = rand.Next(0, 13);
+                    int itemType = rand.Next(0, 20);
                     
                     if (itemType < 12)
                     {
@@ -57,7 +63,7 @@ public class Randomly_Place_Items : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Create Zombie");
+                        Instantiate(zombiePrefab, tileCoordinates, dumbRotation);
                     }
 
                     mudtileArray[i] = mudtileAsset;
