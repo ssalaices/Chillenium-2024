@@ -53,7 +53,6 @@ public class AICombat : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("enemy died");
         
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;

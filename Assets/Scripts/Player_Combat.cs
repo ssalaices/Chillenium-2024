@@ -35,7 +35,7 @@ public class Player_Combat : MonoBehaviour, IDamagable
         if(Time.time >= nextAttackTime)
         {
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
@@ -53,7 +53,7 @@ public class Player_Combat : MonoBehaviour, IDamagable
         //play attack
         //detect enemies in range
         //damage them
-        animator.SetBool("Dashing", true);
+        //animator.SetFloat("Speed", 1);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies)
