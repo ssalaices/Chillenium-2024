@@ -7532,7 +7532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &881902539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8580,7 +8580,7 @@ GameObject:
   - component: {fileID: 1281286449}
   - component: {fileID: 1281286450}
   m_Layer: 5
-  m_Name: Balance
+  m_Name: Debt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8618,7 +8618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eab2fa765041934abba696ca0e3ee5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balance: 0
+  debt: 0
   text: {fileID: 428331120}
 --- !u!1 &1282729901
 GameObject:
@@ -9751,7 +9751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  balance: 0
+  debt: 0
 --- !u!50 &1476957350
 Rigidbody2D:
   serializedVersion: 4
