@@ -6,21 +6,34 @@ public class Sell : MonoBehaviour
 {
     // Start is called before the first frame update
     public int id;
-    public Text soldFor;
     public Text debt;
+    public Text soldFor;
     public Text quote;
     void Start() {
+        InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
         Button button = GetComponent<Button>();
+        button.onClick.AddListener(OnClick);
+        soldFor.text = "How much your object sells for will show here.";
+        debt.text = "Debt remaining: $1500";
+        quote.text = "Welcome back!";
     }
     // Update is called once per frame
-    void Update() {
+    void OnClick() {
         InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
-        if (inventoryManager.inventory[id] == 0) return;
+        if (inventoryManager.inventory[id] == 0) {
+            soldFor.text = "You do not have anymore of these to sell.";
+            quote.text = "Silly goose!";
+            return;
+        }
         inventoryManager.RemoveItem(id);
         int price = Random.Range(50, 101);
         soldFor.text = "This object was sold for $" + price.ToString();
         inventoryManager.debt -= price;
-        debt.text = "You need to sell $" + inventoryManager.debt.ToString() + " to pay off your debt!";
+            if (inventoryManager.debt >= 0) {
+                debt.text = "Debt remaining: $" + inventoryManager.debt.ToString();
+            } else {
+                debt.text = "Debt successfully paid off.";
+            }
         switch (id) {
             case 0:
                 quote.text = "Wow, a business suit! Those were outlawed ages ago because the government got sick of business majors renting out too many bars for night parties.";
