@@ -243,6 +243,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Emitting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.23363686
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
+      value: 0.14250721
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0.39227718
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455129159370867160, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
+      value: 0.14250721
+      objectReference: {fileID: 0}
     - target: {fileID: 5017481409562787322, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
       propertyPath: MudLayer
       value: 
@@ -251,6 +307,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6905362449833156301, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: attackRange
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905362449833156301, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+      propertyPath: attackDamage
+      value: 34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -258,6 +322,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6796602119214670230, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1339732737}
+      addedObject: {fileID: 822078871}
   m_SourcePrefab: {fileID: 100100000, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
 --- !u!1 &183175501
 GameObject:
@@ -53469,6 +53534,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &822078862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6796602119214670230, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+  m_PrefabInstance: {fileID: 142621345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &822078871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822078862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144a58fc62c522e48b695a7d28cf4ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  debt: 0
 --- !u!1 &837890320
 GameObject:
   m_ObjectHideFlags: 0
