@@ -95,9 +95,12 @@ public class AIChase : MonoBehaviour
                 //player_combat.TakeDamage(20);
                 //player_control.PlayFeedback(gameObject);
                 timeElapsed = 0;
-                animator.SetTrigger("Dashing");
+                animator.SetBool("Dashing", true);
                 return;
             }
+
+            animator.SetBool("Dashing", false);
+
 
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
             //transform.rotation = Quaternion.Euler(Vector3.forward * angle);

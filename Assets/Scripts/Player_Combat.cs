@@ -8,8 +8,7 @@ using UnityEngine.UI;
 public class Player_Combat : MonoBehaviour, IDamagable
 {
 
-
-    public Animator animator;
+    Animator animator;
     public Transform attackPoint;
     public float attackRange = 1f;
     public LayerMask enemyLayers;
@@ -27,7 +26,6 @@ public class Player_Combat : MonoBehaviour, IDamagable
     void Start()
     {
         healthBar.fillAmount = currentHealth;
-
         animator = GetComponent<Animator>();
     }
 

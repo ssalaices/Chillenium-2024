@@ -476,8 +476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  distanceBetween: 4
-  hitRange: 2
+  distanceBetween: 5
+  hitRange: 1
   hitCooldown: 2
 --- !u!95 &1909413230557053186
 Animator:
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca9f1aa404c3b245b764c529e54d1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 1
   range: 0.5
   maxDistance: 2
 --- !u!114 &5158385194174532897
