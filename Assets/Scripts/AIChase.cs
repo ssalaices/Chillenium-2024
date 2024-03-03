@@ -33,7 +33,6 @@ public class AIChase : MonoBehaviour
     void Update()
     { 
 
-
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
 
@@ -92,9 +91,8 @@ public class AIChase : MonoBehaviour
             if(distance < hitRange && timeElapsed > hitCooldown)
             {
                 player_combat.currHealth -= 20;
-
                 timeElapsed = 0;
-
+                animator.SetTrigger("Dashing");
                 return;
             }
 

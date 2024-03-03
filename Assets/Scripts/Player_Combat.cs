@@ -18,11 +18,10 @@ public class Player_Combat : MonoBehaviour
 
     public float currHealth = 100;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,12 +38,10 @@ public class Player_Combat : MonoBehaviour
             }
         }
 
-
         //if dead run the die function
         if(currHealth <= 0) {
             Die();
         }
-        
     }
 
     void Attack()
@@ -59,8 +56,6 @@ public class Player_Combat : MonoBehaviour
         {
             enemy.GetComponent<AICombat>().TakeDamage(attackDamage);
         }
-
-
 
     }
 

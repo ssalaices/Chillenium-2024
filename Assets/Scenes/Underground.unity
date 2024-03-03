@@ -727,6 +727,7 @@ MonoBehaviour:
     m_Bits: 0
   attackDamage: 40
   attackRate: 2
+  currHealth: 100
 --- !u!95 &571083952
 Animator:
   serializedVersion: 5
@@ -52804,7 +52805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MudLayer: {fileID: 642973518}
-  ItemLayer: {fileID: 349538066}
   BGLayer: {fileID: 814616205}
 --- !u!1 &1672423641
 GameObject:
@@ -53018,6 +53018,8 @@ MonoBehaviour:
   speed: 4
   distanceBetween: 10
   hitRange: 1
+  hitCooldown: 2
+  player_combat: {fileID: 0}
 --- !u!114 &1672423654
 MonoBehaviour:
   m_ObjectHideFlags: 0
