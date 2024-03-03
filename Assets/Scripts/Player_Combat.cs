@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class Player_Combat : MonoBehaviour
+public class Player_Combat : MonoBehaviour, IDamagable
 {
 
 

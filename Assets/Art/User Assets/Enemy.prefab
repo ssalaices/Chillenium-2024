@@ -429,12 +429,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c084c7d573098c548a2edb048a48dde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 6796602119214670230, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
   speed: 1.5
   distanceBetween: 4
   hitRange: 2
   hitCooldown: 2
-  player_combat: {fileID: 0}
+  player_combat: {fileID: 6905362449833156301, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
+  player_control: {fileID: 5017481409562787322, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
 --- !u!95 &1909413230557053186
 Animator:
   serializedVersion: 5
