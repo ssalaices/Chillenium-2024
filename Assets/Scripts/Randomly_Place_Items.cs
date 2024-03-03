@@ -35,23 +35,30 @@ public class Randomly_Place_Items : MonoBehaviour
         {
             if (bgtileArray[i] && bgtileArray[i].name == "Sand")
             {
-                int chance = rand.Next(0, 50);
+                int chance = rand.Next(0, 30);
 
                 if (chance == 0)
                 {
-                    int itemType = rand.Next(0, 12);
-                    Sprite randomSprite = Resources.Load<Tile>(itemNames[itemType]).sprite;
-
-                    GameObject randItem = new("item", typeof(BoxCollider2D), typeof(Rigidbody2D), 
+                    int itemType = rand.Next(0, 13);
+                    
+                    if (itemType < 12)
+                    {
+                        Sprite randomSprite = Resources.Load<Tile>(itemNames[itemType]).sprite;
+                        GameObject randItem = new("item", typeof(BoxCollider2D), typeof(Rigidbody2D),
                         typeof(SpriteRenderer), typeof(Item_Controller));
 
-                    randItem.GetComponent<SpriteRenderer>().sprite = randomSprite;
-                    randItem.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                    randItem.GetComponent<BoxCollider2D>().isTrigger = true;
-                    randItem.GetComponent<Rigidbody2D>().gravityScale = 0;
-                    randItem.GetComponent<Item_Controller>().type = itemType;
-                    randItem.GetComponent<Item_Controller>().mudtiles = mudtiles;
-                    randItem.GetComponent<Transform>().position = new Vector3((float)x + 0.5f, (float)y + 0.5f, 0.0f);
+                        randItem.GetComponent<SpriteRenderer>().sprite = randomSprite;
+                        randItem.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                        randItem.GetComponent<BoxCollider2D>().isTrigger = true;
+                        randItem.GetComponent<Rigidbody2D>().gravityScale = 0;
+                        randItem.GetComponent<Item_Controller>().type = itemType;
+                        randItem.GetComponent<Item_Controller>().mudtiles = mudtiles;
+                        randItem.GetComponent<Transform>().position = new Vector3((float)x + 0.5f, (float)y + 0.5f, 0.0f);
+                    }
+                    else
+                    {
+                        Debug.Log("Create Zombie");
+                    }
 
                     mudtileArray[i] = mudtileAsset;
                 }

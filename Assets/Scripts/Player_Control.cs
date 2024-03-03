@@ -39,10 +39,19 @@ public class Player_Control : MonoBehaviour
 
         if (isDashing)
         {
-            
-            //find mud tiles near player
-            //if distance between player and tile is <= some value
-            //kill the mud tile, make 
+            int[] diffs = {-1, 0, 1};
+            Vector3Int pos = Vector3Int.FloorToInt(gameObject.transform.position);
+            Vector3Int startPos = new Vector3Int(pos.x - 1, pos.y - 1, 0);
+            Vector3Int endPos = new Vector3Int(pos.x + 1, pos.y + 1, 0);
+            Vector3Int[] positions = new Vector3Int[9];
+            TileBase[] tiles = new TileBase[9];
+
+            mudtiles.GetTilesRangeNonAlloc(startPos, endPos, positions, tiles);
+
+            foreach (TileBase tile in tiles)
+            {
+                Destroy(tile);
+            }
 
             animator.SetBool("Dashing", true);
             return;
