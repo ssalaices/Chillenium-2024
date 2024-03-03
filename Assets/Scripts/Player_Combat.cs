@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class Player_Combat : MonoBehaviour
 {
@@ -8,7 +11,7 @@ public class Player_Combat : MonoBehaviour
 
     public Animator animator;
     public Transform attackPoint;
-    public float attackRange = .5f;
+    public float attackRange = 1f;
     public LayerMask enemyLayers;
 
     public int attackDamage = 40;
@@ -16,11 +19,15 @@ public class Player_Combat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
-    public float currHealth = 100;
+
+    public float currentHealth = 100f;
+    public Image healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
+        healthBar.fillAmount = currentHealth;
+
         animator = GetComponent<Animator>();
     }
 
@@ -34,12 +41,11 @@ public class Player_Combat : MonoBehaviour
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
-
             }
         }
 
         //if dead run the die function
-        if(currHealth <= 0) {
+        if(currentHealth <= 0) {
             Die();
         }
     }
@@ -71,16 +77,22 @@ public class Player_Combat : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        healthBar.fillAmount = currentHealth / 100f;
+    }
+
     void Die()
     {
         Debug.Log("You died");
-
-        animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
 
         //add some game over screen stuff
+
+        SceneManager.LoadSceneAsync(0);
     }
 
 }
