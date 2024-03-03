@@ -59,6 +59,8 @@ public class Player_Combat : MonoBehaviour
 
     }
 
+
+    //supposed to draw the hitbox for enemies
     void OnDrawGizmosSelected()
     {
         if(attackPoint == null)
