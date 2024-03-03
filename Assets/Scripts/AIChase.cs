@@ -90,7 +90,7 @@ public class AIChase : MonoBehaviour
             //if ai is in hit range and cooldown has passed
             if(distance < hitRange && timeElapsed > hitCooldown)
             {
-                player_combat.currHealth -= 20;
+                player_combat.TakeDamage(20);
                 timeElapsed = 0;
                 animator.SetTrigger("Dashing");
                 return;
