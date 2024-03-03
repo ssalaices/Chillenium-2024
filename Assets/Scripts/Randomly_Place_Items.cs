@@ -47,9 +47,10 @@ public class Randomly_Place_Items : MonoBehaviour
 
                     randItem.GetComponent<SpriteRenderer>().sprite = randomSprite;
                     randItem.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                    randItem.GetComponent<BoxCollider2D>().isTrigger = false;
+                    randItem.GetComponent<BoxCollider2D>().isTrigger = true;
                     randItem.GetComponent<Rigidbody2D>().gravityScale = 0;
                     randItem.GetComponent<Item_Controller>().type = itemType;
+                    randItem.GetComponent<Item_Controller>().mudtiles = mudtiles;
                     randItem.GetComponent<Transform>().position = new Vector3((float)x + 0.5f, (float)y + 0.5f, 0.0f);
 
                     mudtileArray[i] = mudtileAsset;
