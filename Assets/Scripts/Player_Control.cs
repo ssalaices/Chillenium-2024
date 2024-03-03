@@ -43,7 +43,7 @@ public class Player_Control : MonoBehaviour
             Vector3Int pos = Vector3Int.FloorToInt(gameObject.transform.position);
             Vector3Int startPos = new Vector3Int(pos.x - 1, pos.y - 1, 0);
             Vector3Int endPos = new Vector3Int(pos.x + 1, pos.y + 1, 0);
-            Vector3Int[] positions = new Vector3Int[25];
+            Vector3Int[] positions = new Vector3Int[diffs.Length * diffs.Length];
 
             int j = 0;
             foreach (int diffx in diffs)
