@@ -1130,7 +1130,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "help carlos repay his debt to the shopkeep\n\navoid or fight the zombies
-    \n\nsearch for muddy tiles\n\npress shift while standing to punch and kick zombis\n\npress
+    \n\nsearch for muddy tiles\n\npress shift while standing to punch and kick zombies\n\npress
     shift while moving to dash forward, clearing away mud and revealing items\n\nreturn
     to the shopkeep to repay your debt or else"
   m_isRightToLeft: 0
