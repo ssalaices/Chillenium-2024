@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 5287056202715681157}
   - component: {fileID: 7356173053255745519}
   - component: {fileID: 7195102883201822452}
+  - component: {fileID: 7497749320646658071}
   - component: {fileID: 2801808352718938734}
   - component: {fileID: 1909413230557053186}
   - component: {fileID: 5634802565259908910}
@@ -417,6 +418,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &7497749320646658071
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796748824366154205}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.1875, y: 5.5833335}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.37, y: 4.6}
+  m_EdgeRadius: 0
 --- !u!114 &2801808352718938734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,13 +475,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c084c7d573098c548a2edb048a48dde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6796602119214670230, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
   speed: 1.5
   distanceBetween: 4
   hitRange: 2
   hitCooldown: 2
-  player_combat: {fileID: 6905362449833156301, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
-  player_control: {fileID: 5017481409562787322, guid: 98f045e4db919af47bdfeddeecad6647, type: 3}
 --- !u!95 &1909413230557053186
 Animator:
   serializedVersion: 5
