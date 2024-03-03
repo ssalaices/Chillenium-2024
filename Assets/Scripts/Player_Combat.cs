@@ -60,7 +60,6 @@ public class Player_Combat : MonoBehaviour, IDamagable
         {
             enemy.GetComponent<AICombat>().TakeDamage(attackDamage);
         }
-
     }
 
 
@@ -90,7 +89,7 @@ public class Player_Combat : MonoBehaviour, IDamagable
 
         //add some game over screen stuff
 
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadScene("EndScreen");
     }
 
 }

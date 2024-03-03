@@ -16,8 +16,15 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("HowToPlay");
     }
 
+    public void GoToTitle()
+    {
+        SceneManager.LoadScene("StartScreen");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
     }
+
+
 }
