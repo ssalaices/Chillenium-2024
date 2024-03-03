@@ -19,6 +19,7 @@ public class AIChase : MonoBehaviour
 
     //Player_Combat health = player.GetComponent<Player_Combat>();
     public Player_Combat player_combat;
+    public Player_Control player_control;
 
 
     Animator animator;
@@ -91,6 +92,8 @@ public class AIChase : MonoBehaviour
             if(distance < hitRange && timeElapsed > hitCooldown)
             {
                 player_combat.TakeDamage(20);
+                player_control.PlayFeedback(gameObject);
+                
                 timeElapsed = 0;
                 animator.SetTrigger("Dashing");
                 return;
