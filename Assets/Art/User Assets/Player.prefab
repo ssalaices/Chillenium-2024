@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 1012657219930073931}
   - component: {fileID: 4455129159370867160}
   - component: {fileID: 6905362449833156301}
+  - component: {fileID: 8472717015862355147}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -653,6 +654,20 @@ MonoBehaviour:
   attackRate: 3
   currentHealth: 100
   healthBar: {fileID: 4893930915834992787}
+--- !u!114 &8472717015862355147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796602119214670230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144a58fc62c522e48b695a7d28cf4ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  debt: 0
 --- !u!1 &8358206435136457662
 GameObject:
   m_ObjectHideFlags: 0
